@@ -1,0 +1,133 @@
+body {
+	padding-top: 70px;
+	background-color: #E8E0F5;
+}
+
+/* Top Navbar */
+
+.nav-item .nav-link i {
+	color: black;
+}
+
+#navbar .nav-link:active i, .nav-link:focus i, {
+	color: #8E3094;
+}
+
+#navbar .nav-item a.nav-link.active {
+	color: #8E3094;
+	background-color: #F6F6F6;
+}
+
+#navbar .nav-item .active i {
+	color: #8E3094;
+}
+
+.nav-item a {
+	color: gray;
+}
+
+.nav-item:active a, .nav-item:focus a {
+	color: #8E3094;
+}
+
+.nav-link {
+	font-size: 75%;
+}
+
+.btn-primary {
+    background: #9568C9;
+}
+
+/* Song li items */
+
+.list-group > .active {
+	background: #9568C9;
+}
+
+.list-group-item {
+	background: #E8E0F5;
+}
+
+.list-group-item .row .col-8 .titleText {
+	color: #8E3094;
+}
+
+.list-group-item .row .col-8 .artistText {
+	font-size: smaller;
+}
+
+.list-group .btn {
+	padding: 0px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	outline: none;
+	border: 0;
+	background: transparent;
+}
+
+/* Playlists */
+
+.btn-block {
+	height: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#createPlaylists .list-group .btn, #showSearchResults .list-group .btn {
+	position: absolute;
+	right:1em;
+}
+
+#createPlaylists .list-group img, #showSearchResults .list-group img {
+	margin-right: 1em;
+}
+
+/* Search */
+
+#showSearchResults {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#searchInput {
+	width: 88%;
+}
+
+#showSearchResults li {
+	display: none;
+}
+
+#library .btn-group label input {
+	display: none;
+}
+
+/* Library Tab > Modal */
+.modal-content {
+	background-color: #E8E0F5;
+}
+
+#playlistModal ul li {
+	list-style-type: none;
+	margin-bottom: 2em;
+}
+
+.modal {
+	width:75%;
+	margin: auto;
+	margin-top: 50%;
+}
+
+/* Library Tab > Playlists */
+.hiddenPlaylists {
+	display: none;
+}
+
+.playlistName {
+	color: #8E3094;
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+	font-size: larger;
+}

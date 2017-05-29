@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+		<title>Music App</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="playlist.css">
+		<script src="https://use.fontawesome.com/47386ccac3.js"></script>
+		
+
+		<script src="music-app.js"></script>
+  </head>
+  <body>
+	
+	<div id="navbar">
+		<nav class="navbar fixed-top navbar-light bg-faded">
+			<ul class="nav nav-justified nav-pills" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="pill" href="#library" role="tab" onclick="libraryTab()"><i class="fa fa-2x fa-music" aria-hidden="true"></i><br>Library</a>
+				</li>
+				<li class="nav-item" onclick="displayPlaylists()">
+					<a class="nav-link active" data-toggle="pill" href="#playlists" role="tab" onclick="playlistsTab()"><i class="fa fa-2x fa-list" aria-hidden="true"></i><br>Playlists</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="pill" href="#search" role="tab" onclick="searchTab()"><i class="fa fa-2x fa-search" aria-hidden="true"></i><br>Search</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	
+	<div class="tab-content">
+		<div class="tab-pane" id="library" role="tabpanel">
+			<div class="row justify-content-center">
+			<div class="btn-group" data-toggle="buttons">
+			<div class="col-sm-4 offset-sm-2">
+				<label class="btn btn-primary btn-sm active" id="sortByArtistButton" onclick="displaySortByArtist()">
+					<input type="radio" name="options" id="option1" autocomplete="off" checked>Sort by artist
+				</label>
+			</div>
+			<div class="col-sm-4 offset-sm-2">
+				<label class="btn btn-primary btn-sm" id="sortByTitleButton" onclick="displaySortByTitle()">
+					<input type="radio" name="options" id="option2" autocomplete="off">Sort by title
+				</label>
+			</div>
+			</div>
+			</div>
+			<div id="container">
+					<div id="showSongsSortedByArtist">
+					</div>
+					<div id="showSongsSortedByTitle">
+					</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane active" id="playlists" role="tabpanel">
+			<div class="row">
+				<button type="button" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#addPlaylistModal"><i class="fa fa-plus" aria-hidden="true"></i> Playlist</button>
+			</div>
+			<div class="modal fade" id="addPlaylistModal" tabindex="-1" role="dialog" aria-labelledby="addPlaylistModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="addPlaylistModalLabel">Name your playlist</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body" id="addPlaylistModal">
+							<form>
+								<div class="form-group">
+									<label for="inputPlaylistName">Playlist name</label>
+									<input type="text" class="form-control" id="inputPlaylistName" aria-describedby="playlistName" placeholder="Enter playlist name">
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addPlaylistToDisk()">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="createPlaylists"></div>
+			<div id="showPlaylistSongs"></div>
+		</div>
+		
+		<div class="tab-pane" id="search" role="tabpanel">
+			<div id="showSearchResults">
+				<div class="row justify-content-center">
+					<input type="text" id="searchInput" onkeyup="search()" placeholder="Search...">
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="addModalLabel">Choose playlist</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="playlistModal"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="addModalUser" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="addModalLabel">User playlist</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="userModal"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

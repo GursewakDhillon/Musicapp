@@ -1,0 +1,19 @@
+{
+  "name": "exercise8",
+  "version": "1.0.0",
+  "description": "Adding a backend to Music App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.16.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "mu2": "^0.5.21",
+    "sequelize": "^3.30.1",
+    "socket.io": "^1.7.3",
+    "sqlite3": "^3.1.8"
+  }
+}
